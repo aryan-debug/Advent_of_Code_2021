@@ -9,8 +9,8 @@ def read_file() -> list[int]:
 
 def part_1(nums: list[int]) -> int:
     count_increased = 0
-    for i in range(1, len(nums)):
-        if check_increased(nums[i - 1], nums[i]):
+    for i, j in zip(nums, nums[1:]):
+        if check_increased(i, j):
             count_increased += 1
     return count_increased
 
