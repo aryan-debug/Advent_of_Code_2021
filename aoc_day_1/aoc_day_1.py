@@ -17,13 +17,12 @@ def part_1(nums: list[int]) -> int:
 
 def part_2(nums: list[int]) -> int:
     count_increased = 0
-    for i in range(len(nums)):
-        increment_3 = nums[i : i + 3]
-        next_nums = nums[i + 1 : i + 4]
-        if len(increment_3) == len(next_nums) == 3 and check_increased(
-            sum(increment_3), sum(next_nums)
-        ):
+    prev = 0
+    for i, j, k in zip(nums[1:], nums[2:], nums[3:]):
+        total = sum([i, j, k])
+        if check_increased(prev, total):
             count_increased += 1
+        prev = total
     return count_increased
 
 
