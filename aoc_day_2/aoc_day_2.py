@@ -7,7 +7,7 @@ def read_file() -> list[str, int]:
 
 
 def get_axis(instructions: list[str, int]) -> tuple[int, int]:
-    x_axis: int; y_axis: int = 0, 0
+    x_axis, y_axis = 0, 0
     for direction, distance in instructions:
         match direction:
             case "forward":
@@ -19,7 +19,7 @@ def get_axis(instructions: list[str, int]) -> tuple[int, int]:
     return x_axis, y_axis
         
 def use_aim(instructions: list[str, int]) -> tuple[int, int]:
-    x_axis: int; y_axis: int; aim:int = 0, 0, 0
+    x_axis, y_axis, aim = 0, 0, 0
     for direction, distance in instructions:
         match direction:
             case "forward":
@@ -33,8 +33,8 @@ def use_aim(instructions: list[str, int]) -> tuple[int, int]:
 
 def main():
     instructions:list[str, int] = read_file()
-    x: int ;y: int = get_axis(instructions)
-    new_x: int; new_y: int = use_aim(instructions)
+    x, y = get_axis(instructions)
+    new_x, new_y = use_aim(instructions)
     print(f"Part 1 solution: {x * y}")
     print(f"Part 2 solution: {new_x * new_y}")
 
